@@ -43,7 +43,7 @@ try {
             getWxUserinfo($access_token, $openid);
             break;
 
-            //获取全局 access_token
+        //获取全局 access_token
         case $region[3]://GET getWxAuthAccessToken
             getWxAuthAccessToken();
             break;
