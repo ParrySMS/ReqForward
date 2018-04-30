@@ -11,6 +11,7 @@
 
         
 a.qq.com  ---请求--->  proxy.qq.com下的接口 ---请求---> 微信API接口
+
 b.qq.com  ---请求--->  proxy.qq.com下的接口 ---请求---> 微信API接口
 
 proxy.qq.com在接收到请求后，再次请求微信API接口，并将微信API接口的返回内容直输出返回。
