@@ -3,6 +3,13 @@
 
 - 注：代码结构有些混乱，未支持全部的请求转发，后续不定时更新
 
+## 更新说明
+```
+同一个类别下的接口url有部分相同之处，可以分别设置对象进行代码的结构优化
+
+20180501 添加模型消息接口下的转发实现
+```
+
 ## 请求流程说明 
 
 由于微信服务号后台限制只能有1个回调域名，当业务需求需要多个域名使用同一个服务号相关请求时，就必须要将相关业务部署到同一个域名下。为了解决这类问题，可指定一个回调域名用于转发微信相关的请求。例如，指定回调域名为 proxy.qq.com ，则需要向微信请求时，请求流程如下：
@@ -48,13 +55,22 @@ proxy.qq.com在接收到请求后，再次请求微信API接口，并将微信AP
 
 **（以下请求的地址格式均为`域名/目录/proxyG/forward.php?sign=SIGN&action=ACTION`）**
 
-- code换取网页授权 access_token包
+**([微信网页授权接口](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842))**
+- code换取网页授权 access_token 包
 - 刷新 access_token
 - 拉取用户信息
 
+**[获取 access_token](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140183)**
 - 获取全局 access_token
 
+**（[模板消息类接口](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1433751277)）**
 - 发送模板消息
+- 设置所属行业
+- 获取设置的行业信息
+- 添加模板并获取模板id
+- 获取模板列表
+- 删除模板消息
 
-- 获取JSSDK所需的jsapi_ticket(注：需要将相关域名添加到服务号后台js安全域名中)
+**([微信JSSDK](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115))**
+- 获取JSSDK所需的 jsapi_ticket (注：需要将相关域名添加到服务号后台js安全域名中)
 
