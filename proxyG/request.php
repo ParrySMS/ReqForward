@@ -71,7 +71,7 @@ function getWxAuthAccessToken($appid = APPID, $appsecret = APPSECRET)
  * @param $template_id
  * @param $data
  */
-function sendWxMsgTemplate($access_token, $touser, $template_id, $data)
+function sendWxMsgTemplate($access_token, $touser, $template_id, $data, $tem_url, $miniprogram)
 {
     $url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=$access_token";
     unset($postData);
@@ -79,6 +79,81 @@ function sendWxMsgTemplate($access_token, $touser, $template_id, $data)
     $postData['touser'] = $touser;
     $postData['template_id'] = $template_id;
     $postData['data'] = $data;
+    //可选
+    if (is_object($miniprogram) && !empty($miniprogram)) {
+        $postData['miniprogram'] = $miniprogram;
+    }
+
+    if (!empty($tem_url)) {
+        $postData['url'] = $tem_url;
+    }
+
+    $json = request_post($url, $postData);
+    print_r($json);
+}
+
+/** 设置行业
+ * 可在微信公众平台后台完成，每月可修改行业1次，帐号仅可使用所属行业中相关的模板
+ * @param $access_token
+ * @param $industry_id1
+ * @param $industry_id2
+ */
+function setIndustry($access_token, $industry_id1, $industry_id2)
+{
+    $url = "https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=$access_token";
+
+    unset($postData);
+    $postData = array();
+    $postData['industry_id1'] = $industry_id1;
+    $postData['industry_id2'] = $industry_id2;
+    $json = request_post($url, $postData);
+    print_r($json);
+}
+
+/** 查看行业信息
+ * @param $access_token
+ */
+function getIndustry($access_token)
+{
+    $url = "https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=$access_token";
+    $json = request_get($url);
+    print_r($json);
+}
+
+/** 添加模板并获取模板id
+ * @param $access_token
+ * @param $template_id_short
+ */
+function addTemplate($access_token, $template_id_short)
+{
+    $url = "https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token=$access_token";
+    unset($postData);
+    $postData = array();
+    $postData['template_id_short'] = $template_id_short;
+    $json = request_post($url, $postData);
+    print_r($json);
+
+}
+
+/**获取模板列表
+ * 获取已添加至帐号下所有模板列表，可在微信公众平台后台中查看模板列表信息
+ */
+function getAllPrivateTemplate($access_token)
+{
+    $url = "https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token=$access_token";
+    $json = request_get($url);
+    print_r($json);
+}
+
+/** 删除模板消息
+ * @param $access_token
+ * @param $template_id
+ */
+function delPrivateTemplate($access_token,$template_id){
+    $url = "https://api.weixin.qq.com/cgi-bin/template/del_private_template?access_token=$access_token";
+    unset($postData);
+    $postData = array();
+    $postData['template_id'] = $template_id;
     $json = request_post($url, $postData);
     print_r($json);
 }

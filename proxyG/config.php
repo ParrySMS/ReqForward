@@ -19,8 +19,17 @@ define('ACTION_REGION','return array(
             "getWxAccessToken",
             "refreshWxToken",
             "getWxUserinfo",
+            
             "getWxAuthAccessToken",
+            
             "sendWxMsgTemplate",
+            "setIndustry",
+            "getIndustry",
+            "addTemplate",
+            "getAllPrivateTemplate",
+            "delPrivateTemplate",
+            
+            
             "getWxJsapiTicket"
             );
        ');
