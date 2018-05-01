@@ -55,7 +55,7 @@ proxy.qq.com在接收到请求后，再次请求微信API接口，并将微信AP
 
 **（以下请求的地址格式均为`域名/目录/proxyG/forward.php?sign=SIGN&action=ACTION`）**
 
-**([微信网页授权接口](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842))**
+**[微信网页授权接口](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)**
 - code换取网页授权 access_token 包
 - 刷新 access_token
 - 拉取用户信息
@@ -63,7 +63,7 @@ proxy.qq.com在接收到请求后，再次请求微信API接口，并将微信AP
 **[获取 access_token](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140183)**
 - 获取全局 access_token
 
-**（[模板消息类接口](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1433751277)）**
+**[模板消息类接口](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1433751277)**
 - 发送模板消息
 - 设置所属行业
 - 获取设置的行业信息
@@ -71,6 +71,6 @@ proxy.qq.com在接收到请求后，再次请求微信API接口，并将微信AP
 - 获取模板列表
 - 删除模板消息
 
-**([微信JSSDK](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115))**
+**[微信JSSDK](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)**
 - 获取JSSDK所需的 jsapi_ticket (注：需要将相关域名添加到服务号后台js安全域名中)
 
