@@ -43,6 +43,10 @@ proxy.qq.com在接收到请求后，再次请求微信API接口，并将微信AP
 - 需要填写appid和appsecret的参数
 - ACTION_REGION 参数指定了可接受的转发请求，与`forward.php`中的 swtich case 语句一一对应
 
+#### 加密授权 `auth.php`
+
+- 在该文件下设置`sign参数`和`action参数`的加密方式
+
 #### 转发请求处理 `forward.php`
 
 - 使用加密的`sign参数`进行身份校验
