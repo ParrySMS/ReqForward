@@ -12,13 +12,14 @@ require "./http.php";
 require "./config.php";
 
 try {
+    $auth = new Auth();
     $sign = isset($_GET['sign']) ? $_GET['sign'] : null;
-    isVaildSign($sign);
+    $auth->isVaildSign($sign);
 
     $actionEn = isset($_GET['action']) ? $_GET['action'] : null;
     //解密
     $action = base64_decode($actionEn);
-    isVaildAction($action);
+    $auth->isVaildAction($action);
 
     //选择配置文件的判断分支
     $region = eval(ACTION_REGION);

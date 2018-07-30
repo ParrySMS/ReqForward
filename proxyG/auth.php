@@ -6,20 +6,23 @@
  * Time: 10:41
  */
 
-function isVaildSign($sign)
+Class Auth implements IAuth
 {
-    $day = date("Y-m-d-H");
-    if ($sign != md5($day)) {
-        throw new Exception("sign not vaild", 500);
-    }
-}
-
-function isVaildAction($action)
-{
-    $actionRegion = eval(ACTION_REGION);
-    if(!in_array($action,$actionRegion)){
-        throw new Exception("action not vaild",500);
+    public function isVaildSign($sign)
+    {
+        $day = date("Y-m-d-H");
+        if ($sign != md5($day)) {
+            throw new Exception("sign not vaild", 500);
+        }
     }
 
+    public function isVaildAction($action)
+    {
+        $actionRegion = eval(ACTION_REGION);
+        if (!in_array($action, $actionRegion)) {
+            throw new Exception("action not vaild", 500);
+        }
+
+    }
 }
 
