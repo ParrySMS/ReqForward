@@ -25,6 +25,11 @@ b.qq.com  ---请求--->  proxy.qq.com下的接口 ---请求---> 微信API接口
 
 proxy.qq.com在接收到请求后，再次请求微信API接口，并将微信API接口的返回内容直输出返回。
 
+## 公众号权限说明
+
+不同的公众号类型具备不同的接口权限，调用之前请务必确认自己的订阅号或服务号拥有对应权限,具体详见[微信官方文档 https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1433401084](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1433401084)
+
+
 ## 安全问题
 
 
